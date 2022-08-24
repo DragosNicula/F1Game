@@ -34,7 +34,7 @@ export class EnemyYellow extends Enemy {
 }
 export class EnemyBlue extends Enemy {
     constructor(game) {
-        super(); // foloseste tot ce e in constructor //
+        super(); // this uses everything from the main constructor //
         this.game = game;
         this.x = Math.floor(Math.random() * (690 - 250) + 1) + 250;
         this.y = -150;
@@ -47,7 +47,7 @@ export class EnemyBlue extends Enemy {
 }
 export class EnemyGreen extends Enemy {
     constructor(game) {
-        super(); // foloseste tot ce e in constructor //
+        super(); //  this uses everything from the main constructor //
         this.game = game;
         this.x = Math.floor(Math.random() * (690 - 250) + 1) + 250;
         this.y = -150;
