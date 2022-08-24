@@ -1,6 +1,9 @@
 class Enemy {
     constructor() {
-        this.outOfScreenEnemies = false; // cand ajunge in afara ecranului se sterge din sir //
+        this.outOfScreenEnemies = false; // when outside of the screen we delete it //
+        this.width = 60;
+        this.height = 97;
+        this.y = -150;
     }
     update() { 
         this.y += this.speed;
@@ -19,14 +22,11 @@ class Enemy {
 
 export class EnemyYellow extends Enemy {
     constructor(game) {
-        super(); // foloseste tot ce e in constructor //
+        super(); // we use everything what is in the constructor from above //
         this.game = game;
-        this.width = 60;
-        this.height = 97;
         this.x = Math.floor(Math.random() * (690 - 250) + 1) + 250;
-        this.y = -150;
         this.speed = 1;
-        this.image = document.getElementById("enemyYellow")
+        this.image = document.getElementById("enemyYellow");
     }
     update() {
         super.update();
@@ -36,12 +36,10 @@ export class EnemyBlue extends Enemy {
     constructor(game) {
         super(); // foloseste tot ce e in constructor //
         this.game = game;
-        this.width = 60;
-        this.height = 97;
         this.x = Math.floor(Math.random() * (690 - 250) + 1) + 250;
         this.y = -150;
         this.speed = 2;
-        this.image = document.getElementById("enemyBlue")
+        this.image = document.getElementById("enemyBlue");
     }
     update() {
         super.update();
@@ -51,12 +49,10 @@ export class EnemyGreen extends Enemy {
     constructor(game) {
         super(); // foloseste tot ce e in constructor //
         this.game = game;
-        this.width = 60;
-        this.height = 97;
         this.x = Math.floor(Math.random() * (690 - 250) + 1) + 250;
         this.y = -150;
         this.speed = 3;
-        this.image = document.getElementById("enemyGreen")
+        this.image = document.getElementById("enemyGreen");
     }
     update() {
         super.update();

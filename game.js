@@ -1,5 +1,5 @@
 import { Player } from './player.js';
-import { PlayerInput } from './keyboardInput.js';
+import { PlayerInput } from './input.js';
 import { createBoard } from './createBoard.js';
 import { EnemyBlue, EnemyGreen, EnemyYellow } from './enemies.js';
 import { Score } from './score.js';
@@ -8,11 +8,11 @@ import { SmallTree, LargeTree, AppleTree } from './trees.js';
 
 window.addEventListener('load', function() { // waits for all the images to load than it starts //
   const board = document.getElementById("f1");
-  const ctx = board.getContext("2d");
+  const ctx = board.getContext("2d"); // we import methods of drawing to this variable //
   board.height = 800;
   board.width = 1000;
 
-  class Game {
+  class Game { // brain of the game //
     constructor(width, height) {
       this.width = width;
       this.height = height;
@@ -23,14 +23,14 @@ window.addEventListener('load', function() { // waits for all the images to load
       this.trees = [];
       this.enemies = [];
       this.enemyTimer = 0;
-      this.enemyInterval = 1000;
+      this.enemyInterval = 1000; 
       this.enableHitBox = false; // hitbox //
       this.fontColorScore = 'white';
       this.fontColorEndGame = 'red';
       this.score = 0;
       this.stop = 0;
     }
-    update() {
+    update() { // updates everyframe //
       if(this.stop === 0) {
         this.player.update(this.input.keys);
         if (this.enemyTimer > this.enemyInterval) { // adding enemies + tress //
@@ -38,7 +38,7 @@ window.addEventListener('load', function() { // waits for all the images to load
           this.addTrees();
           this.enemyTimer = 0;
         } else {
-          this.enemyTimer = this.enemyTimer + 10;
+          this.enemyTimer += 10;
         }
         this.enemies.forEach(enemy => {
           enemy.update();
@@ -54,7 +54,7 @@ window.addEventListener('load', function() { // waits for all the images to load
         })
       }
     }
-    draw(context) {
+    draw(context) { // draw every frame //
       this.player.draw(context);
       this.enemies.forEach(enemy => {
         enemy.draw(context);

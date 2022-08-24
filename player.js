@@ -14,7 +14,7 @@ export class Player {
         this.checkCollision();
         this.x += this.speed; // speed + key assign //
         if(input.includes('ArrowRight')) {
-            if (this.x < 270) { // daca este pe kerb stanga scadem viteza //
+            if (this.x < 270) { // if it's on kerb we slow the speed //
                 this.maxSpeed = this.speedOnKerbs;
             } else if (this.x > 270 && this.x < 630) {
                 this.maxSpeed = 1.2;
@@ -29,9 +29,8 @@ export class Player {
             }
             this.speed = -this.maxSpeed;
             --this.x;
-        } else { // daca nu suntem pe kerb viteza revine la loc //
-            this.speed = 0; 
-            this.maxSpeed = 1.2;
+        } else { // if we don't press anything the car will stop //
+            this.speed = 0;     
         }
         this.borders();
     }
@@ -39,7 +38,7 @@ export class Player {
         if (this.game.enableHitBox === true) { // hitbox //
             context.strokeRect(this.x , this.y, this.width, this.height);
         }
-        context.drawImage(this.image, this.x, this.y);
+        context.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
     borders() { // border to the left and right //
         if (this.x < 250) { 

@@ -1,6 +1,10 @@
 class Tree {
     constructor() {
         this.outOfScreenTrees = false;
+        this.width = 50;
+        this.height = 50;
+        this.y = -150;
+        this.speed = 1.5;
     }
     update() {
         this.y += this.speed;
@@ -18,12 +22,8 @@ export class SmallTree extends Tree {
     constructor(game) {
         super();
         this.game = game;
-        this.width = 50;
-        this.height = 50;
         this.xLeft = Math.floor(Math.random() + 200) + 1;
         this.xRight = Math.floor(Math.random() * (930 - 770) + 770);
-        this.y = -150;
-        this.speed = 1.5;
         this.image = document.getElementById("smallTree");
     }
     update() {
@@ -35,12 +35,8 @@ export class LargeTree extends Tree {
     constructor(game) {
         super();
         this.game = game;
-        this.width = 50;
-        this.height = 50;
         this.xLeft = Math.floor(Math.random() * 200) + 1;
         this.xRight = Math.floor(Math.random() * (930 - 770) + 770);
-        this.y = -150;
-        this.speed = 1.5;
         this.image = document.getElementById("largeTree");
     }
     update() {
@@ -52,12 +48,8 @@ export class AppleTree extends Tree {
     constructor(game) {
         super();
         this.game = game;
-        this.width = 50;
-        this.height = 50;
         this.xLeft = Math.floor(Math.random() * 200) + 1;
         this.xRight = Math.floor(Math.random() * (930 - 770) + 770);
-        this.y = -150;
-        this.speed = 1.5;
         this.image = document.getElementById("appleTree");
     }
     update() {
